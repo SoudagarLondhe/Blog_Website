@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Mysql Blog</title>
+</head>
+
+<body>
+    <header>
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>MYSQL JDBC</h1>
+                <p class="subtitle">Master the database with JAVA!</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="homepage.html">Home</a></li>
+                    <li><a href="aboutblog.html">About blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container container-flex">
+
+        <main role="main">
+
+            <article class="article-featured">
+                <h2 class="article-title">JDBC Insert Example using Prepared Statement</h2>
+                <img src="img/img2.jpg" alt="" class="article-image">
+                <p class="article-info">Sept, 2020 | 3 comments</p>
+                <p class="article-body"><strong>What is the need of Prepared Statement?</strong>
+
+                  Sometimes we need to implement same query multiple times e.g. insert query to add multiple
+                  records into table. In this situation, only data get changed while the syntax for SQL query
+                  remains same. Here, unnecessarily we compile the same query multiple times.
+                  To avoid this, we have to use Prepared Statement.
+                  <br>
+                  <br>
+                  A PreparedStatement is a pre-compiled SQL statement. It is a subinterface of Statement.
+                  Prepared Statement objects have some useful additional features than Statement objects.
+                  Instead of hard coding queries, PreparedStatement object provides a feature to execute a parameterized query.
+              <br>
+              <br>
+              <u>Advantages of PreparedStatement :</u>
+
+                  When PreparedStatement is created, the SQL query is passed as a parameter. This Prepared Statement contains
+                  a pre-compiled SQL query, so when the PreparedStatement is executed, DBMS can just run the query instead of
+                  first compiling it. We can use the same PreparedStatement and supply with different parameters at the time of execution.
+                  An important advantage of PreparedStatements is that they prevent SQL injection attacks.
+
+                <p><u>JAVA Code:</u><br>
+                  import java.sql.*;<br>
+                  class InsertPrepared{ <br>
+                  public static void main(String args[]){ <br>
+                  try{<br>
+                  Class.forName("oracle.jdbc.driver.OracleDriver");<br>
+
+                  Connection con;<br>
+                  con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","","");<br>
+
+                  PreparedStatement stmt=con.prepareStatement("insert into Emp values(?,?)");<br>
+                  stmt.setInt(1,101);//1 specifies the first parameter in the query<br>
+                  stmt.setString(2,"Ratan");<br>
+
+                  int i=stmt.executeUpdate();<br>
+                  System.out.println(i+" records inserted");<br>
+
+                  con.close();<br>
+
+                }catch(Exception e){ System.out.println(e);<br>
+                  }
+
+                  }
+                  }
+                  </p>
+                  <br>
+                  <u>Methods of PreparedStatement:</u>
+                  <ul>
+                    <li>setInt(int, int): This method can be used to set integer value at the given parameter index.
+                    <li>setString(int, string): This method can be used to set string value at the given parameter index.
+                    <li>setFloat(int, float): This method can be used to set float value at the given parameter index.
+                    <li>setDouble(int, double): This method can be used to set a double value at the given parameter index.
+                    <li>executeUpdate(): This method can be used to create, drop, insert, update, delete etc. It returns int type.
+                    <li>executeQuery(): It returns an instance of ResultSet when a select query is executed.
+                  </ul>
+
+
+            </article>
+            <a href="homepage.html" class="button">Back to blog</a>
+            <br><br>
+        </main>
+
+        <aside class="sidebar">
+
+            <div class="sidebar-widget">
+                <h2 class="widget-title">About Blog</h2>
+                <a href="aboutblog.html"><img src="img/img5.png" alt="" class="widget-image"></a>
+                <p class="widget-body">Info about Mysql and Jdbc connectivity.</p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h2 class="widget-title">RECENT POSTS</h2>
+
+                <div class="widget-recent-post">
+                    <h3 class="widget-recent-post-title">MySql Triggers</h3>
+                    <img src="img/img6.jpg" alt="" class="widget-image">
+                </div>
+
+                <div class="widget-recent-post">
+                    <h3 class="widget-recent-post-title">MySql Procedures</h3>
+                    <img src="img/img4.png" alt="" class="widget-image">
+                </div>
+
+                <div class="widget-recent-post">
+                    <h3 class="widget-recent-post-title">Retrive data using JDBC</h3>
+                    <img src="img/img3.png" alt="" class="widget-image">
+                </div>
+
+            </div>
+
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>MYSQL Contents</strong><br>By Soudagar Londhe</p>
+    </footer>
+
+</body>
+
+</html>

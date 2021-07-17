@@ -3,30 +3,139 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title>MySql Blog</title>
 </head>
 <body>
-   
+    <header>
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>MYSQL JDBC</h1>
+                <p class="subtitle">Master the database with JAVA!</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="" class="current-page">Home</a></li>
+                    <li><a href="aboutblog.html">About blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <div>
+    <div class="container container-flex">
         <main role="main">
-            <article>
-                <h2>JDBC Insert Example using Prepared Statement</h2>
-                <img src="img/img2.jpg" width="30px">
-                <p>Sept, 2020 | 3 comments</p>
-                <p><strong>What is the need of Prepared Statement?:</strong>
+            <article class="article-featured">
+                <h2 class="article-title">JDBC Insert Example using Prepared Statement</h2>
+                <img src="img/img2.jpg" width="30px" class="article-image">
+                <p class="article-info">Sept, 2020 | 3 comments</p>
+                <p class="article-body"><strong>What is the need of Prepared Statement?:</strong>
                      <br>
                      Sometimes we need to implement same query multiple times e.g. insert query to add multiple
                      records into table. In this situation, only data get changed while the syntax for SQL query
                      remains same. Here, unnecessarily we compile the same query multiple times.
                      To avoid this, we have to use Prepared Statement.
 
-                <a href="blogdetails.html">CONTINUE READING</a>
+                <a href="blogdetails.html" class="article-read-more">CONTINUE READING</a>
             </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Retrieve data from mysql </h2>
+                    <p class="article-body">
+                      ResultSet rs = s.executeQuery("select * from student");
+                  <br>  if (rs != null) // if rs == null, then there is no record in ResultSet to show
+                  <br>    while (rs.next()) // By this line we will step through our data row-by-row
+                    {
+                    <br>    System.out.println("Id of the student: " + rs.getString(1));
+                    <br>    System.out.println("Name of student: " + rs.getString(2));
+                    <br>    System.out.println("Address of student: " + rs.getString(3));
+                    }
+                  <br>  s.close(); // close the Statement to let the database know we're done with it
+                  <br>  con.close(); // close the Connection to let the database know we're done with it
+                  </p>
+                    <a href="#" class="article-read-more">CONTINUE READING</a>
+                  <hr>
+                </div>
+
+
+                <div class="article-recent-secondary">
+                    <img src="img/img3.png" width="30px" class="article-image">
+                    <p class="article-info">Jan 22, 2021 | 2 comments</p>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">MySql Procedures</h2>
+                    <p class="article-body">
+                      <strong>What is the need of procedure?</strong>
+                      1. By creating procedure, we can run multiple SQL queries in a single call.
+                      2. Another advantage is that procedure is stored and can be called at any time.
+                      No need to write same SQL queries again and again.</p>
+                    <a href="#" class="article-read-more">CONTINUE READING</a>
+                  <hr>
+                </div>
+
+                <div class="article-recent-secondary">
+                    <img src="img/img4.png" height="100px" >
+                    <p class="article-info">Feb 10, 2021 | 3 comments</p>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">MySql Triggers</h2>
+                    <p class="article-body">
+                    Triggers provide another way to check the integrity of data.
+                    Triggers handle errors from the database layer.
+                    Triggers give an alternative way to run scheduled tasks. By using triggers, you don’t have to wait for the scheduled events to run because the triggers are invoked automatically before or after a change is made to the data in a table.
+                    Triggers can be useful for auditing the data changes in tables.  </p>
+                      <a href="#" class="article-read-more">CONTINUE READING</a>
+                </div>
+
+                <div class="article-recent-secondary">
+                    <img src="img/img6.jpg" width= class="article-image">
+                    <p class="article-info">Feb 20, 2021 | 9 comments</p>
+                </div>
+            </article>
+
+        </main>
+
+        <aside class="sidebar">
+
+            <div class="sidebar-widget">
+                <h2 class="widget-title">About Blog</h2>
+                <a href="about.html"><img src="img/img5.png" alt="" class="widget-image"></a>
+                <p class="widget-body">Info about Mysql and Jdbc connectivity.</p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h2 class="widget-title">RECENT POSTS</h2>
+
+                <div class="widget-recent-post">
+                    <h3 class="widget-recent-post-title">MySql Triggers</h3>
+                    <img src="img/img6.jpg" alt="" class="widget-image">
+                </div>
+
+                <div class="widget-recent-post">
+                    <h3 class="widget-recent-post-title">MySql Procedures</h3>
+                    <img src="img/img4.png" alt="" class="widget-image">
+                </div>
+
+                <div class="widget-recent-post">
+                    <h3 class="widget-recent-post-title">Retrive data using JDBC</h3>
+                    <img src="img/img3.png" alt="" class="widget-image">
+                </div>
+
+            </div>
+
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>MYSQL Contents</strong><br>By Soudagar Londhe</p>
+    </footer>
 
 </body>
 
